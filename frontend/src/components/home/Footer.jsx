@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/circle-logo.svg"
+import logo from "../../assets/circle-logo.svg";
 import { motion } from "framer-motion";
 
 const Footer = () => {
@@ -72,128 +72,14 @@ const Footer = () => {
       </div>
 
       <div className="relative w-[90%] max-w-7xl mx-auto">
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-12 mb-16">
-          {/* Brand Column */}
-          <div className="lg:col-span-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <img
-                src={logo}
-                alt="CircleVault logo"
-                className="h-12 w-auto mb-6"
-              />
-              <p className="text-gray-400 text-base leading-relaxed mb-6">
-                Revolutionizing savings through blockchain technology. Build
-                your financial future with secure, transparent, and flexible
-                savings solutions.
-              </p>
-              {/* Newsletter Subscription */}
-              <div className="flex flex-col sm:flex-row gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-3 bg-[#1A3A5C] border border-[#00D4FF]/20 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#00D4FF] transition-colors duration-300"
-                />
-                <button className="px-6 py-3 bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] rounded-lg text-white font-semibold hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-all duration-300 whitespace-nowrap">
-                  Subscribe
-                </button>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Product Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <h3 className="text-white font-bold text-lg mb-6">Product</h3>
-            <ul className="space-y-3">
-              {footerLinks.product.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-[#00D4FF] transition-colors duration-300 text-base"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Company Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <h3 className="text-white font-bold text-lg mb-6">Company</h3>
-            <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-[#00D4FF] transition-colors duration-300 text-base"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Resources Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <h3 className="text-white font-bold text-lg mb-6">Resources</h3>
-            <ul className="space-y-3">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-[#00D4FF] transition-colors duration-300 text-base"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Legal Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <h3 className="text-white font-bold text-lg mb-6">Legal</h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-[#00D4FF] transition-colors duration-300 text-base"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <img src={logo} alt="CircleVault logo" className="h-12 w-auto mb-6" />
+        </motion.div>
 
         {/* Divider */}
         <div className="w-full h-px bg-gradient-to-r from-transparent via-[#00D4FF]/30 to-transparent mb-8"></div>

@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router";
-import logo from "../../assets/circle-logo.svg"
+import logo from "../../assets/circle-logo.svg";
 import { Divide as Hamburger } from "hamburger-react";
 import { useScroll, motion, useSpring } from "framer-motion";
+import { useAppKit } from "@reown/appkit/react";
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
+  const { open } = useAppKit();
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -31,15 +33,12 @@ const Header = () => {
           : "bg-linear-to-b from-dark to-darkest"
       }`}
     >
-
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-[#00D4FF] to-[#7C3AED] origin-[0%] z-50 shadow-[0_0_20px_rgba(0,212,255,0.5)]"
         style={{ scaleX }}
       />
 
-
       <nav className="w-[90%] max-w-7xl mx-auto hidden lg:flex items-center justify-between py-6">
-        
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -89,6 +88,7 @@ const Header = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           <button
+            onClick={() => open()}
             className="group relative px-6 py-3 bg-linear-to-r from-[#00D4FF] to-[#7C3AED] rounded-full text-base font-semibold text-white overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,212,255,0.5)] hover:scale-105"
           >
             <span className="relative z-10 flex items-center gap-2">
@@ -205,10 +205,8 @@ const Header = () => {
 
                 {/* Divider */}
                 <div className="w-full h-px bg-gradient-to-r from-transparent via-[#00D4FF]/50 to-transparent"></div>
-
-                {/* Connect Wallet Button */}
                 <button
-                
+                  onClick={() => open()}
                   className="w-full px-6 py-4 bg-gradient-to-r from-[#00D4FF] to-[#7C3AED] rounded-full text-base font-semibold text-white shadow-lg hover:shadow-[0_0_30px_rgba(0,212,255,0.5)] transition-all duration-300 hover:scale-105"
                 >
                   <span className="flex items-center justify-center gap-2">

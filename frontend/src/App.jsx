@@ -6,6 +6,7 @@ import {
   RouterProvider,
 } from "react-router"
 import Home from './pages/Home';
+import './connection'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
