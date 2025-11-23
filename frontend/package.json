@@ -10,17 +10,22 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^2.2.9",
     "@reown/appkit": "^1.8.14",
     "@reown/appkit-adapter-ethers": "^1.8.14",
     "@tailwindcss/vite": "^4.1.17",
     "ethers": "^6.15.0",
+    "ethers-decode-error": "^2.1.3",
     "framer-motion": "^12.23.24",
     "hamburger-react": "^2.5.2",
     "react": "^19.2.0",
+    "react-circular-progressbar": "^2.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
     "react-router": "^7.9.6",
+    "react-spinners": "^0.17.0",
     "react-toastify": "^11.0.5",
+    "recharts": "^3.5.0",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
