@@ -1,0 +1,85 @@
+import { useCallback } from "react";
+import useContractInstance from "./useContractInstance";
+import { useAppKitAccount, useAppKitNetwork } from "@reown/appkit/react";
+import {flareTestnet} from "@reown/appkit/networks";
+import { toast } from "react-toastify";
+import { ErrorDecoder } from "ethers-decode-error";
+import abi from "../constants/abi.json";
+
+const useCreateThrift = () => {
+  const contract = useContractInstance(true);
+  const { address } = useAppKitAccount();
+  const { chainId } = useAppKitNetwork();
+  const errorDecoder = ErrorDecoder.create([abi]);
+
+  return useCallback(
+    async (
+      goalName,
+      goalAmount,
+      frequency,
+      vaultAddress,
+      startTime,
+      endTime,
+      participant
+    ) => {
+      if (
+        !goalName ||
+        !goalAmount ||
+        frequency === "" ||
+        !vaultAddress ||
+        !startTime ||
+        !endTime ||
+        participant === null || participant === undefined
+      ) {
+        toast.error("Invalid Input");
+        return;
+      }
+
+      if (!address) {
+        toast.error("Please connect your wallet");
+        return;
+      }
+
+      if (!contract) {
+        toast.error("Contract not found");
+        return;
+      }
+
+      if (Number(chainId) !== Number(flareTestnet .id)) {
+        toast.error("You're not connected to Flare Testnet");
+        return;
+      }
+
+      try {
+        const tx = await contract.createVault(
+          goalName,
+          goalAmount,
+          frequency,
+          vaultAddress,
+          startTime,
+          endTime,
+          participant
+        );
+        const receipt = await tx.wait();
+
+        if (receipt.status === 1) {
+          toast.success("New module creation Successful");
+          // indicate success to the caller
+          return true;
+        }
+
+        toast.error("New module creation failed");
+        return false;
+      } catch (err) {
+        const decodedError = await errorDecoder.decode(err);
+        toast.error(`New module creation failed - ${decodedError.reason}`, {
+          position: "top-center",
+        });
+        return false;
+      }
+    },
+    [contract, address, chainId]
+  );
+};
+
+export default useCreateThrift;
