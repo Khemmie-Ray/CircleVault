@@ -1,0 +1,92 @@
+import React, { useState } from "react";
+import { DashNav } from "../../../components/shared/Reuse";
+import HistoryGroupCard from "../../../components/dashboard/HistoryGroupCard";
+import GroupModuleCard from "../../../components/dashboard/GroupModuleCard";
+import ProgressPie from "../../../components/dashboard/ProgressPie";
+import { RxDotFilled } from "react-icons/rx";
+import WithdrawCard from "../../../components/dashboard/WithdrawCard";
+import { FaPlus } from "react-icons/fa";
+import CreatedGroup from "../../../components/dashboard/CreatedGroup";
+
+const CollectiveVault = () => {
+  const percentage = 0;
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <DashNav>Collective Vault</DashNav>
+      <section className="flex justify-between my-8 lg:px-8 md:px-8 px-4 items-center flex-col lg:flex-row md:flex-row">
+        <div className="mb-3">
+          <h2 className="lg:text-[28px] md:text-[28px] text-[20px] font-[600]">
+            Hello
+          </h2>
+          <p>Here you can manage all your collective vault</p>
+        </div>
+        <div className="relative flex items-center">
+          {isOpen && (
+            <input
+              type="text"
+              placeholder="Enter invite"
+              className="border rounded-xl p-2 border-black/30 mt-3 mr-4"
+            />
+          )}
+          <button
+            className="bg-linear-to-r from-primary to-dark font-[500] text-white py-3 px-6 mt-3 text-[12px] flex justify-center rounded-full hover:scale-105 items-center"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            Join a group with a code <FaPlus className="ml-2" />
+          </button>
+        </div>
+      </section>
+      <section className="flex justify-between my-8 lg:px-8 md:px-8 px-4 items-center flex-col lg:flex-row md:flex-row">
+        <div className="lg:w-[49%] md:w-[49%] w-[100%] mb-auto">
+          <div className="rounded-xl bg-white px-4 py-8 mb-4">
+            <p className="font-[600] mb-4 text-[18px]">
+              Ongoing {" "}
+              <span className="text-[12px] font-[500] text-primary">
+                (Collective Vault)
+              </span>
+            </p>
+            <HistoryGroupCard />
+          </div>
+          <div className="rounded-xl bg-white px-4 py-8">
+            <p className="font-[600] mb-4 text-[18px]">
+              All collective vaults created by you
+            </p>
+            <CreatedGroup />
+          </div>
+        </div>
+        <div className="lg:w-[49%] md:w-[49%] w-[100%] mb-auto">
+          <div className="flex justify-between flex-col lg:flex-row md:flex-row">
+            <GroupModuleCard />
+            <div className="bg-white lg:w-[48%] md:w-[48%] w-[100%] rounded-lg p-6 shadow-xl mb-3">
+              <ProgressPie percentage={percentage} />
+              <p className="font-[600] text-[14px] my-2">
+                Overall Collective Vault
+              </p>
+              <p className="flex items-center text-[12px]">
+                <RxDotFilled className="text-primary text-xl mr-3" /> 0% goal
+                met
+              </p>
+              <p className="flex items-center text-[12px]">
+                <RxDotFilled className="text-lightgray text-xl mr-3" /> 0% goal
+                left to be met
+              </p>
+            </div>
+          </div>
+          <div className="bg-white rounded-lg py-8 px-4 my-4">
+            <p className="font-[600] mb-4 text-[18px]">
+              All completed vaults{""}
+              <span className="text-[12px] font-[500] text-primary">
+                (Collective)
+              </span>
+            </p>
+            <WithdrawCard />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default CollectiveVault;
