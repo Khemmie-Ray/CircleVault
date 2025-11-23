@@ -1,30 +1,39 @@
 import React, { useEffect, useCallback } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import { Outlet, useNavigate } from 'react-router'
+import Sidebar from '../components/dashboard/Sidebar'
+import { Outlet, useNavigate, useLocation }from 'react-router'
+import MobileSidebar from '../components/dashboard/MobileSidebar'
 import { useAppKitAccount } from '@reown/appkit/react'
 
 const Layout = () => {
-  const { isConnected } = useAppKitAccount();
+  const { isConnected, status } = useAppKitAccount();
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleRedirect = useCallback(async () => {
-    if (isConnected) {
-      navigate("/dashboard");
-    } else {
-      navigate("/");
+  const handleRedirect = useCallback(() => {
+    if (status === 'connecting') return;
+
+    if (!isConnected) {
+      navigate("/"); 
+    } else if (isConnected && !location.pathname.startsWith("/dashboard")) {
+      navigate("/dashboard"); 
     }
-  }, [isConnected, navigate]);
+  }, [isConnected, location.pathname, navigate]);
 
   useEffect(() => {
     handleRedirect();
-  }, [handleRedirect, isConnected]);
+  }, [handleRedirect]);
 
   return (
     <div>
-        <Header />
+      <MobileSidebar />
+        <div className='flex justify-between'>
+          <div className='w-[20%] hidden lg:flex md:flex bg-darker overflow-y-auto max-h-[1100px]'>
+        <Sidebar />
+        </div>
+        <div className='h-screen overflow-y-scroll w-[95%] lg:w-[80%] md:w-[80%] bg-[#F3F5F7] mx-auto'>
         <Outlet />
-        <Footer />
+        </div>
+        </div>
     </div>
   )
 }

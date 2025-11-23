@@ -3,7 +3,7 @@ import { EthersAdapter } from "@reown/appkit-adapter-ethers";
 import {flareTestnet} from "@reown/appkit/networks";
 
 // 1. Get projectId
-const projectId = import.meta.env.VITE_PROJECTID;
+const projectId = import.meta.env.VITE_PROJECTID
 
 const networks = [flareTestnet];
 

@@ -6,12 +6,20 @@ import {
   RouterProvider,
 } from "react-router"
 import Home from './pages/Home';
+import HomeLayout from './Layout/HomeLayout';
+import Layout from './Layout/Layout';
+import Dashboard from './pages/dashboard/Dashboard';
 import './connection'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route>
+      <Route path='/' element={<HomeLayout />} >
         <Route index element={<Home />} />
+        </Route>
+        <Route path='/dashboard' element={<Layout />} >
+        <Route index element={<Dashboard />} />
+        </Route>
     </Route>
   )
 );
