@@ -16,7 +16,7 @@ const VaultCard = () => {
       </span>
     </p>
     <NavLink
-      to="/dashboard/individual-savings/create-module"
+      to="/dashboard/solo-vault/create-solo"
       className="bg-linear-to-r from-primary to-dark font-[500] text-white p-3 mt-3 text-[12px] flex justify-center rounded-full hover:scale-105 items-center"
     >
       <AiOutlinePlus className="mr-2" /> Create New Vault

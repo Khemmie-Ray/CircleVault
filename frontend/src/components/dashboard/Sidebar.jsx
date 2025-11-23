@@ -24,9 +24,9 @@ const Sidebar = () => {
   };
 
   const savingItems = [
-    { label: "Individual savings", href: "/dashboard/individual-savings" },
-    { label: "Group savings", href: "/dashboard/group-savings" },
-    { label: "All savings", href: "/dashboard/allsavings" },
+    { label: "Solo Vault", href: "/dashboard/solo-vault" },
+    { label: "Collective Vault", href: "/dashboard/collective-vault" },
+    { label: "All Vaults", href: "/dashboard/allVaults" },
   ];
 
   return (

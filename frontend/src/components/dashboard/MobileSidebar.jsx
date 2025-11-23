@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { BiCategoryAlt } from "react-icons/bi";
 import { NavLink } from "react-router";
 import logo from "../../assets/mark.svg";
 import { CgViewComfortable } from "react-icons/cg";
 import { TbMoneybag } from "react-icons/tb";
 import Dropdown from "./Dropdown";
-import { RxCountdownTimer } from "react-icons/rx";
-import { RiSettings5Line } from "react-icons/ri";
 import { BiLogOut } from "react-icons/bi";
 import { Divide as Hamburger } from "hamburger-react";
 import { MdBookmarkBorder, MdNotificationsNone } from "react-icons/md";
@@ -27,9 +24,9 @@ const MobileSidebar = () => {
   };
 
   const savingItems = [
-    { label: "Individual savings", href: "/dashboard" },
-    { label: "Group savings", href: "/about" },
-    { label: "All savings", href: "/services" },
+    { label: "Solo Vault", href: "/dashboard/solo-vault" },
+    { label: "Collective Vault", href: "/dashboard/collective-vault" },
+    { label: "All Vaults", href: "/dashboard/allVaults" },
   ];
 
   return (
@@ -64,7 +61,7 @@ const MobileSidebar = () => {
               Overview
             </NavLink>
 
-            <DropdownNavLink
+            <Dropdown
               label="Savings Module"
               icon={TbMoneybag}
               items={savingItems}

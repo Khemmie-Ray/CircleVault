@@ -2,11 +2,12 @@ import { Button, Dialog, DialogPanel, DialogTitle } from "@headlessui/react";
 import { useState } from "react";
 import useRegister from "../../hooks/useRegister";
 import ButtonSpinner from "../loaders/ButtonSpinner";
+import { ethers } from "ethers";
 
 const RegisterModal = () => {
   let [isOpen, setIsOpen] = useState(false);
   const [username, setUsername] = useState("");
-  const [isLister, setIslister] = useState("");
+  const [isLister, setIslister] = useState(false);
   const handleRegister = useRegister();
   const [loading, setLoading] = useState(false);
 
@@ -20,8 +21,9 @@ const RegisterModal = () => {
 
   const handleSignup = async () => {
     setLoading(true);
-    await handleRegister(username, isLister);
-    setIslister("");
+    const usernameBytes = ethers.encodeBytes32String(username);
+
+    await handleRegister(usernameBytes, isLister);
     setUsername("");
     setLoading(false);
     close();
@@ -62,7 +64,7 @@ const RegisterModal = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
               />
-              <p className="mb-2">Are you an Asset Lister?</p>
+              {/* <p className="mb-2">Are you an Asset Lister?</p>
               <select
                 name=""
                 id=""
@@ -74,8 +76,8 @@ const RegisterModal = () => {
                   No Option Yet
                 </option>
                 <option value={true}>Yes</option>
-                <option value={false}>No</option>
-              </select>
+                <option value={false}>No</option> */}
+              {/* </select> */}
               <div className="mt-4">
                 <Button
                   className={`py-4 px-8 rounded-full font-[500] w-full bg-gradient-to-r hover:from-lightPurple hover:to-lilac cursor-pointer ${
