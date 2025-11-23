@@ -10,13 +10,13 @@ import HomeLayout from './Layout/HomeLayout';
 import Layout from './Layout/Layout';
 import Dashboard from './pages/dashboard/Dashboard';
 import './connection'
-import CreateSolo from './pages/dashboard/CreateSolo.jsx';
-import CreateCollective from './pages/dashboard/CreateCollective.jsx';
-import SoloVault from './pages/dashboard/Savings/SoloVault.jsx';
-import SoloVaultDetails from './pages/dashboard/Savings/SoloVaultDetails.jsx';
-import CollectiveDetails from './pages/dashboard/Savings/CollectiveDetails.jsx';
-import CollectiveVault from './pages/dashboard/Savings/CollectiveVault.jsx';
-import AllVaults from './pages/dashboard/Savings/AllVaults.jsx';
+import CreateSolo from './pages/dashboard/CreateSolo';
+import CreateCollective from './pages/dashboard/CreateCollective';
+import SoloVault from './pages/dashboard/Savings/SoloVault';
+import SoloVaultDetails from './pages/dashboard/Savings/SoloVaultDetails';
+import CollectiveDetails from './pages/dashboard/Savings/CollectiveDetails';
+import CollectiveVault from './pages/dashboard/Savings/CollectiveVault';
+import AllVaults from './pages/dashboard/Savings/AllVaults';
 import { ThriftContextProvider } from './context/ThriftContextProvider';
 
 const router = createBrowserRouter(
