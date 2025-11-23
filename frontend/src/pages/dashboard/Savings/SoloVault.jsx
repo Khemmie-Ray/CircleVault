@@ -62,3 +62,4 @@ const SoloVault = () => {
 };
 
 export default SoloVault;
+

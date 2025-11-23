@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { DashNav, MobileDashNav } from "../../components/shared/Reuse";
-import RegisterModal from "../../components/dashboard/RegisterModal";
 import Saver from "../../components/dashboard/Saver";
 
 const Dashboard = () => {
