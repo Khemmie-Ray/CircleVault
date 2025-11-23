@@ -24,7 +24,10 @@ const useFetchIndividual = () => {
   };
 
   const decodeThrift = (res) => {
-    const raw = itf.decodeFunctionResult("getIndividualGoal", res.returnData)[0];
+    const raw = itf.decodeFunctionResult(
+      "getIndividualGoal",
+      res.returnData
+    )[0];
     const arr = Array.from(raw);
 
     return {
@@ -45,8 +48,8 @@ const useFetchIndividual = () => {
 
   const fetchSingle = useCallback(async () => {
     if (!chainId || !readOnlyProvider) return;
-
-    setLoading(true)
+    console.log("🔵 fetchSingle called");
+    setLoading(true);
 
     const multicallContract = new Contract(
       multicallAddr,
@@ -88,16 +91,9 @@ const useFetchIndividual = () => {
     } catch (error) {
       console.error("Failed to fetch individual thrifts:", error);
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [
-    allSingle,
-    singleUser,
-    itf,
-    multicallAddr,
-    readOnlyProvider,
-    chainId,
-  ]);
+  }, [allSingle, singleUser, itf, multicallAddr, readOnlyProvider, chainId]);
 
   useEffect(() => {
     fetchSingle();

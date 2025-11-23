@@ -4,13 +4,13 @@ import logo from "../../assets/circle-logo.svg";
 import { CgViewComfortable } from "react-icons/cg";
 import { TbMoneybag } from "react-icons/tb";
 import Dropdown from "./Dropdown";
-import { RxCountdownTimer } from "react-icons/rx";
-import { RiSettings5Line } from "react-icons/ri";
 import { BiLogOut } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDisconnect } from "@reown/appkit/react";
 
 const Sidebar = () => {
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const { disconnect } = useDisconnect()
 
   const toggleDropdown = (dropdownName) => {
     setActiveDropdown((prev) => (prev === dropdownName ? null : dropdownName));
@@ -106,7 +106,7 @@ const Sidebar = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
         className="mt-auto border-t border-[#00D4FF]/10 relative z-10"
       >
-        <button className="group w-full text-left text-base flex items-center p-6 text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all duration-300 rounded-lg">
+        <button className="group w-full text-left text-base flex items-center p-6 text-red-400 hover:text-red-300 hover:bg-red-500/10 transition-all duration-300 rounded-lg cursor-pointer" onClick={disconnect}>
           <BiLogOut className="mr-3 text-xl group-hover:scale-110 transition-transform duration-300" />
           <span className="font-medium">Log out</span>
         </button>

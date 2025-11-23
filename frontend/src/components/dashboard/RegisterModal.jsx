@@ -64,20 +64,6 @@ const RegisterModal = () => {
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
               />
-              {/* <p className="mb-2">Are you an Asset Lister?</p>
-              <select
-                name=""
-                id=""
-                className="border border-white/20 w-[100%] rounded-md hover:outline-0 p-3 mb-4 bg-black"
-                onChange={(e) => setIslister(e.target.value)}
-                value={isLister}
-              >
-                <option value={""} defaultChecked>
-                  No Option Yet
-                </option>
-                <option value={true}>Yes</option>
-                <option value={false}>No</option> */}
-              {/* </select> */}
               <div className="mt-4">
                 <Button
                   className={`py-4 px-8 rounded-full font-[500] w-full bg-gradient-to-r hover:from-lightPurple hover:to-lilac cursor-pointer ${
