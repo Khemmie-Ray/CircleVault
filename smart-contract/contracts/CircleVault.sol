@@ -402,5 +402,4 @@ contract CircleVault is AccessControl{
     function returnUser(address _userAddress) public view returns(User memory){
         return users[_userAddress];
     }
-
 }
